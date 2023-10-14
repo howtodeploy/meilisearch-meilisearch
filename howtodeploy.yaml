@@ -1,0 +1,25 @@
+name: meilisearch
+providers:
+  - render
+  - digitalocean
+  - docker
+services:
+  - type: docker
+    name: meilisearch
+    dockerfile: |
+      FROM getmeili/meilisearch:latest
+    docker_run_cmd: docker run -d --rm -p 7700:7700 -e "MEILI_MASTER_KEY=MASTER_KEY"
+      -v $(pwd)/meili_data:/meili_data getmeili/meilisearch:latest
+    instance_count: 1
+    http_port: 7700
+    health_check:
+      port: 7700
+      http_path: /health
+      initial_delay_seconds: 10
+    env_vars:
+      - key: MEILI_MASTER_KEY
+        value: MASTER_KEY
+    disks:
+      - name: meili-data
+        mount_path: /meili_data
+        size: 1

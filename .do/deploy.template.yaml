@@ -1,0 +1,18 @@
+spec:
+  name: meilisearch
+  services:
+    - name: meilisearch
+      git:
+        repo_clone_url: https://github.com/howtodeploy/meilisearch-meilisearch
+        branch: main
+      dockerfile_path: Dockerfile
+      instance_count: 1
+      http_port: 7700
+      health_check:
+        port: 7700
+        http_path: /health
+        initial_delay_seconds: 10
+      envs:
+        - key: MEILI_MASTER_KEY
+          scope: RUN_AND_BUILD_TIME
+          value: MASTER_KEY

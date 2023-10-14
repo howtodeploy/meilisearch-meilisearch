@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: meilisearch
+    env: docker
+    plan: starter
+    numInstances: 1
+    healthCheckPath: /health
+    envVars:
+      - key: PORT
+        value: 7700
+      - key: MEILI_MASTER_KEY
+        value: MASTER_KEY
+    disk:
+      name: meili-data
+      mountPath: /meili_data
+      sizeGB: 1

@@ -1,1 +1,2 @@
 FROM getmeili/meilisearch:latest
+

@@ -1,9 +1,12 @@
 name: meilisearch
+web_links:
+  website: https://www.meilisearch.com
 providers:
   - render
   - digitalocean
   - docker
   - flyio
+  - aws
 services:
   - type: docker
     name: meilisearch

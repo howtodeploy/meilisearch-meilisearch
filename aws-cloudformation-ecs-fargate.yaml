@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: 2010-09-09
-Description: 'CloudFormation template for <ParameterAppName>.'
+Description: 'CloudFormation template for meilisearch.'
 
 Parameters:
 
